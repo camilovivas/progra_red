@@ -3,37 +3,33 @@ package comm;
 import java.io.IOException;
 import java.net.Socket;
 
-public class Session extends Thread {
+public class Session {
 
+    private String id;
     private Socket socket;
     private Receptor receptor;
     private Emisor emisor;
 
 
-    public Session(Socket socket){
+    public Session ( String id,Socket socket ) {
+        this.id = id;
         this.socket = socket;
-    }
-
-    @Override
-    public void run () {
-        while(true){
-            try {
-                receptor = new Receptor (socket.getInputStream ());
-                receptor.start ();
-                emisor = new Emisor ( socket.getOutputStream () );
-            } catch (IOException e) {
-                e.printStackTrace ( );
-            }
+        try {
+            emisor = new Emisor ( socket.getOutputStream ( ) );
+            receptor = new Receptor ( socket.getInputStream ( ) );
+            receptor.start ( );
+        } catch ( IOException e ) {
+            e.printStackTrace ( );
         }
+
     }
 
 
-
-    public Emisor getEmisor () {
+    public Emisor getEmisor ( ) {
         return emisor;
     }
 
-    public Receptor getReceptor () {
+    public Receptor getReceptor ( ) {
         return receptor;
     }
 }
