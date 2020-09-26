@@ -1,5 +1,6 @@
 package view;
 
+import controller.LoginController;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
@@ -14,7 +15,14 @@ public class LoginWindow extends Stage {
     private Text title;
     private Text subTittle;
 
+    private LoginController controller;
+
     public LoginWindow(){
+        init();
+    }
+
+    public void init(){
+        controller = new LoginController ( this);
         vb =  new VBox ( );
         title = new Text ( "PRChat" );
         subTittle = new Text ( "Escoge tu nombre de ussuario" );
@@ -24,7 +32,6 @@ public class LoginWindow extends Stage {
         vb.getChildren ().addAll ( title, subTittle, name, btIngresar );
         scene = new Scene (vb);
         this.setScene ( scene );
-
     }
 
     public Button getBtIngresar ( ) {

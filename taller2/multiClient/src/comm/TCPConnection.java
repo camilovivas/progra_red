@@ -41,7 +41,6 @@ public class TCPConnection extends Thread {
                     System.out.println ( "conectado" );
 
                     Session session = new Session ( socket );
-                    session.start ();
                     sessions.add ( session );
                 }
             } catch ( IOException e ) {
@@ -57,5 +56,12 @@ public class TCPConnection extends Thread {
 
         public void setConnectionListenner ( OnConnectionListenner connectionListenner ) {
             this.connectionListenner = connectionListenner;
+        }
+
+        public void sendBrodcast(String msg){
+            for (Session session : sessions) {
+                session.getEmisor ().sendMessage ( msg );
+            }
+
         }
 }

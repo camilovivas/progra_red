@@ -1,5 +1,5 @@
 package comm;
 
 public interface OnConnectionListenner {
-    public void onConnectio();
+    public void onConnection();
 }

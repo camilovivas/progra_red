@@ -1,5 +1,7 @@
 package view;
 
+import controller.MultiChatController;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
@@ -17,8 +19,15 @@ public class MultichatWindows extends Stage {
     private TextField message;
     private Button send;
 
-    public MultichatWindows(){
+    private Scene scene;
+    private MultiChatController controller;
 
+    public MultichatWindows(){
+        controller = new MultiChatController (this) ;
+
+    }
+
+    public void init(){
         scroll.setContent ( clients );
 
         message = new TextField ( "Mensaje" );
@@ -28,4 +37,11 @@ public class MultichatWindows extends Stage {
 
     }
 
+    public Button getSend ( ) {
+        return send;
+    }
+
+    public TextField getMessage ( ) {
+        return message;
+    }
 }
