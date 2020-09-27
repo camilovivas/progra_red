@@ -3,7 +3,7 @@ package controller;
 import com.google.gson.Gson;
 import comm.OnMessageListenner;
 import comm.TCPConnection;
-import model.Message;
+import model.*;
 import view.MultichatWindows;
 
 import java.util.UUID;
@@ -23,9 +23,9 @@ public class MultiChatController implements OnMessageListenner {
                 (e)->{
                     String id = UUID.randomUUID ().toString ();
                     String message = windows.getMessage ().getText ();
-                    //Message msg = new Message (  )
+                    Message msg = new Message ( id, message );
                     Gson gson = new Gson ();
-                    //String sned = gson.toJson ( msg );
+                    String send = gson.toJson ( msg );
 
                 }
         );
@@ -33,6 +33,14 @@ public class MultiChatController implements OnMessageListenner {
 
     @Override
     public void onMessage ( String msg ) {
+
+        Gson gson = new Gson();
+        Generic message = gson.fromJson ( msg, Generic.class );
+        switch(message.getType()){
+            case "Broadcast":
+                connection.send
+
+        }
 
     }
 }

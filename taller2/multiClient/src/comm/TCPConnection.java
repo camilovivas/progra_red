@@ -58,7 +58,7 @@ public class TCPConnection extends Thread {
             this.connectionListenner = connectionListenner;
         }
 
-        public void sendBrodcast(String msg){
+        public void sendBroadcast(String msg){
             for (Session session : sessions) {
                 session.getEmisor ().sendMessage ( msg );
             }
