@@ -64,4 +64,14 @@ public class TCPConnection extends Thread {
             }
 
         }
+
+        public void sendDirectMessage(String id, String msg){
+            boolean stop = false;
+            for (int i = 0; i < sessions.size ( ) && !stop; i++) {
+                if(sessions.get ( i ).getId ().equalsIgnoreCase (  id )){
+                    stop = true;
+                    sessions.get ( i ).getEmisor ().sendMessage ( msg );
+                }
+            }
+        }
 }

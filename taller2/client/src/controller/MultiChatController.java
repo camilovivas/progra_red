@@ -35,12 +35,7 @@ public class MultiChatController implements OnMessageListenner {
     public void onMessage ( String msg ) {
 
         Gson gson = new Gson();
-        Generic message = gson.fromJson ( msg, Generic.class );
-        switch(message.getType()){
-            case "Broadcast":
-                connection.send
 
-        }
 
     }
 }

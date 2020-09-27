@@ -6,11 +6,22 @@ import comm.OnMessageListenner;
 import comm.TCPConnection;
 
 public class Start implements OnConnectionListenner, OnMessageListenner {
+
     private TCPConnection connection;
+
+    public Start(){
+        connection = TCPConnection.getInstance ();
+        connection.setPuerto ( 5000 );
+        connection.start ();
+        connection.setConnectionListenner ( this );
+        connection.setMessageListenner ( this );
+
+    }
 
     @Override
     public void onConnection ( String id) {
-        System.out.println ("nuevo cliente conectado" + id );
+
+        System.out.println ("nuevo cliente conectado: " + id );
     }
 
     @Override

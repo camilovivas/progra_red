@@ -32,4 +32,8 @@ public class Session {
     public Receptor getReceptor ( ) {
         return receptor;
     }
+
+    public String getId ( ) {
+        return id;
+    }
 }
