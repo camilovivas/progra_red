@@ -38,4 +38,12 @@ public class Session {
     public void setId ( String id ) {
         this.id = id;
     }
+
+    public void endConnection ( ) {
+        try {
+            socket.close ();
+        } catch ( IOException e ) {
+            e.printStackTrace ( );
+        }
+    }
 }

@@ -4,7 +4,7 @@ public class Message {
 
     private String id;
     private String body;
-    private String type = "Message";;
+    private String type = "Message";
 
     public Message () {
     }

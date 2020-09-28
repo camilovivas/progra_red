@@ -9,14 +9,14 @@ public class DirectMessage {
 	
 	
 	
-	public DirectMessage(String id, String body, String clientId) {
+	public DirectMessage ( String id, String body, String clientId) {
 		super();
 		this.id = id;
 		this.body = body;
 		this.clientId = clientId;
 	}
 	
-	public DirectMessage() {}
+	public DirectMessage () {}
 	
 	
 	public String getId() {

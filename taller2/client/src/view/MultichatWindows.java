@@ -77,4 +77,8 @@ public class MultichatWindows extends Stage {
     public TextArea getMessageArea ( ) {
         return messageArea;
     }
+
+    public ArrayList<Button> getClientsConnected ( ) {
+        return clientsConnected;
+    }
 }

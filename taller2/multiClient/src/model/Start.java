@@ -1,10 +1,7 @@
 package model;
 
 import com.google.gson.Gson;
-import comm.OnConnectionListenner;
-import comm.OnMessageListenner;
-import comm.Session;
-import comm.TCPConnection;
+import comm.*;
 
 public class Start implements OnConnectionListenner, OnMessageListenner {
 
@@ -38,6 +35,8 @@ public class Start implements OnConnectionListenner, OnMessageListenner {
                 DirectMessage priv = gson.fromJson ( msg, DirectMessage.class );
 
 
+
+
                 break;
             case "User":
                 User user = gson.fromJson ( msg, User.class );
@@ -45,6 +44,7 @@ public class Start implements OnConnectionListenner, OnMessageListenner {
                     connection.addClient ( s,user );
                 }
                 else{
+                    s.endConnection ();
                     //TODO AVISAR A AL CLIENTE QUE QUEDO MALA Y QUE REBOTE OTRA VEEZ LLA PANTALLA DE LOGIN Y DARLE .CLOSE A LA CONEXION
                 }
                 break;

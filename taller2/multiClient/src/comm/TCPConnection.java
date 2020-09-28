@@ -70,6 +70,7 @@ public class TCPConnection extends Thread {
 
         }
 
+
         public void sendDirectMessage(String id, String msg){
             boolean stop = false;
             for (int i = 0; i < sessions.size ( ) && !stop; i++) {

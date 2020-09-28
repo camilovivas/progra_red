@@ -25,11 +25,11 @@ public class LoginController implements OnConnectionListenner {
     public void btAction ( ) {
         windows.getBtIngresar ( ).setOnAction (
                 ( e ) -> {
-                    String user = windows.getName ().getText ();
+                    String username = windows.getName ().getText ();
                     connection.setIp ( "127.0.0.1" );
                     connection.setPuerto ( 5000 );
                     connection.start ( );
-                    User userToSend = new User (user);
+                    User userToSend = new User (username);
                     Gson gson = new Gson ();
                     String json = gson.toJson ( userToSend );
                     connection.getEmisor ().sendMessage ( json );
