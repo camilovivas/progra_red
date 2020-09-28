@@ -2,5 +2,5 @@ package comm;
 
 public interface OnMessageListenner {
 
-    public void onMessage(String msg);
+    void onMessage(Session s, String msg);
 }

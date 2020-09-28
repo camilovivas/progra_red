@@ -1,5 +1,7 @@
 package comm;
 
+import model.User;
+
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -13,10 +15,14 @@ public class TCPConnection extends Thread {
         private int puerto;
         private OnConnectionListenner connectionListenner;
         private OnMessageListenner messageListenner;
+
+
         private ArrayList<Session> sessions;
+        private ArrayList<Session> waitingRoom;
 
         private TCPConnection () {
             sessions = new ArrayList<> (  );
+            waitingRoom = new ArrayList<> (  );
         }
 
         //SINGLETON
@@ -39,9 +45,8 @@ public class TCPConnection extends Thread {
                     System.out.println ( "esperando cliente" );
                     Socket socket = server.accept ( );
                     System.out.println ( "conectado" );
-
                     Session session = new Session ( socket );
-                    sessions.add ( session );
+                    waitingRoom.add ( session );
                 }
             } catch ( IOException e ) {
                 e.printStackTrace ( );
@@ -73,5 +78,23 @@ public class TCPConnection extends Thread {
                     sessions.get ( i ).getEmisor ().sendMessage ( msg );
                 }
             }
+        }
+
+        public boolean searchClient(String username){
+            boolean toReturn = false;
+            for (int i = 0; i < sessions.size (); i++) {
+                if(sessions.get ( i ).getId ().equalsIgnoreCase ( username ) ){
+                    toReturn = true;
+                }
+            }
+            return toReturn;
+        }
+
+        public void addClient( Session session, User user ){
+            int index = waitingRoom.indexOf ( session );
+            Session s = waitingRoom.remove ( index );
+            s.setId ( user.getUserName () );
+            sessions.add ( s );
+            connectionListenner.onConnection ( s.getId () );
         }
 }

@@ -1,8 +1,7 @@
 package controller;
 
 import com.google.gson.Gson;
-import comm.OnMessageListenner;
-import comm.TCPConnection;
+import comm.*;
 import model.*;
 import view.MultichatWindows;
 
@@ -21,11 +20,20 @@ public class MultiChatController implements OnMessageListenner {
     public void btSendAction(){
         windows.getSend ().setOnAction (
                 (e)->{
+                    //if(es pa todos){
+
                     String id = UUID.randomUUID ().toString ();
                     String message = windows.getMessage ().getText ();
                     Message msg = new Message ( id, message );
                     Gson gson = new Gson ();
-                    String send = gson.toJson ( msg );
+                    String toSend = gson.toJson ( msg );
+                    connection.getEmisor ().sendMessage ( toSend );
+                    //TODO hacer que aparezca en pantalla
+
+                 //   }
+                    //else{
+
+                    //
 
                 }
         );

@@ -11,17 +11,15 @@ public class Session {
     private Emisor emisor;
 
 
-    public Session ( String id,Socket socket ) {
-        this.id = id;
+    public Session (Socket socket ) {
         this.socket = socket;
         try {
             emisor = new Emisor ( socket.getOutputStream ( ) );
-            receptor = new Receptor ( socket.getInputStream ( ) );
+            receptor = new Receptor (this, socket.getInputStream ( ) );
             receptor.start ( );
         } catch ( IOException e ) {
             e.printStackTrace ( );
         }
-
     }
 
 
@@ -35,5 +33,9 @@ public class Session {
 
     public String getId ( ) {
         return id;
+    }
+
+    public void setId ( String id ) {
+        this.id = id;
     }
 }

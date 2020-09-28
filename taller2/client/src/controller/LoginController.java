@@ -1,10 +1,10 @@
 package controller;
 
-import comm.OnConnectionListenner;
-import comm.TCPConnection;
+import com.google.gson.Gson;
+import comm.*;
 import javafx.application.Platform;
-import view.LoginWindow;
-import view.MultichatWindows;
+import model.*;
+import view.*;
 
 public class LoginController implements OnConnectionListenner {
 
@@ -19,6 +19,7 @@ public class LoginController implements OnConnectionListenner {
     public void init(){
         connection = TCPConnection.getInstance ();
         connection.setConnectionListenner ( this );
+        btAction ();
     }
 
     public void btAction ( ) {
@@ -28,6 +29,10 @@ public class LoginController implements OnConnectionListenner {
                     connection.setIp ( "127.0.0.1" );
                     connection.setPuerto ( 5000 );
                     connection.start ( );
+                    User userToSend = new User (user);
+                    Gson gson = new Gson ();
+                    String json = gson.toJson ( userToSend );
+                    connection.getEmisor ().sendMessage ( json );
 
                 }
         );

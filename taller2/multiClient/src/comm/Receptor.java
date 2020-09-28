@@ -9,9 +9,11 @@ public class Receptor extends Thread {
 
     private InputStream is;
     private OnMessageListenner listener;
+    private Session session;
 
-    public Receptor(InputStream is){
+    public Receptor(Session session, InputStream is){
         this.is = is;
+        this.session = session;
     }
 
     @Override
@@ -21,7 +23,7 @@ public class Receptor extends Thread {
 
             while(true){
                 String msg = br.readLine ();
-                listener.onMessage ( msg );
+                listener.onMessage (session, msg );
             }
 
         } catch (IOException e) {

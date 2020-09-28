@@ -3,6 +3,7 @@ package model;
 import com.google.gson.Gson;
 import comm.OnConnectionListenner;
 import comm.OnMessageListenner;
+import comm.Session;
 import comm.TCPConnection;
 
 public class Start implements OnConnectionListenner, OnMessageListenner {
@@ -25,7 +26,7 @@ public class Start implements OnConnectionListenner, OnMessageListenner {
     }
 
     @Override
-    public void onMessage ( String msg ) {
+    public void onMessage (Session s, String msg ) {
         Gson gson = new Gson();
         Generic type = gson.fromJson(msg, Generic.class);
 
@@ -34,9 +35,18 @@ public class Start implements OnConnectionListenner, OnMessageListenner {
                 connection.sendBroadcast ( msg );
                 break;
             case "DirectMessage":
+                DirectMessage priv = gson.fromJson ( msg, DirectMessage.class );
+
 
                 break;
-            case "update":
+            case "User":
+                User user = gson.fromJson ( msg, User.class );
+                if(!connection.searchClient ( user.getUserName () )){
+                    connection.addClient ( s,user );
+                }
+                else{
+                    //TODO AVISAR A AL CLIENTE QUE QUEDO MALA Y QUE REBOTE OTRA VEEZ LLA PANTALLA DE LOGIN Y DARLE .CLOSE A LA CONEXION
+                }
                 break;
 
         }
