@@ -49,7 +49,7 @@ public class Start implements OnConnectionListenner, OnMessageListenner {
                     connection.sendDirectMessage ( user.getUserName (), "noPermitido" );
                     System.out.println ("esta repetido" );
                     connection.remove ( s );
-                    s.endConnection ( );
+                    //s.endConnection ( );
                 }
                 break;
             case "UserInside":

@@ -35,29 +35,7 @@ public class MultiChatController implements OnMessageListenner {
         System.out.println ( "le pedi los usuarios" );
     }
 
-    public void fillButtons ( ArrayList<String> input ) {
-        Platform.runLater (
-                ( ) -> {
-                    windows.getClientsConnected ( ).clear ( );
-                    Button b = new Button ( "todos" );
-                    windows.getClientsConnected ( ).add ( b );
-                    windows.getClients ( ).getChildren ( ).add ( b );
 
-                    for (int i = 0; i < input.size ( ); i++) {
-                        if ( input.get ( i ).equals ( owner ) ) {
-                            Button bt = new Button ( input.get ( i ) + " (yo)" );
-                            bt.setDisable ( true );
-                            windows.getClientsConnected ( ).add ( bt );
-                            windows.getClients ( ).getChildren ( ).add ( bt );
-                        } else {
-                            Button bt = new Button ( input.get ( i ) );
-                            windows.getClientsConnected ( ).add ( bt );
-                            windows.getClients ( ).getChildren ( ).add ( bt );
-                        }
-                    }
-                }
-        );
-    }
 
     public void fillList ( ArrayList<String> input ) {
         Platform.runLater (
@@ -82,17 +60,6 @@ public class MultiChatController implements OnMessageListenner {
          return windows.getListUsers ().getSelectionModel ().getSelectedItem ().toString ();
       }
 
-    public String seleccted ( ) {
-        ArrayList<Button> buttons = windows.getClientsConnected ( );
-        String toReturn = "";
-        for (int i = 0; i < buttons.size ( ); i++) {
-            if ( buttons.get ( i ).isFocused () ) {
-                toReturn = buttons.get ( i ).getText ( );
-                System.out.println ( "el boton seleccionadco fue" + toReturn );
-            }
-        }
-        return toReturn;
-    }
 
     public void btSendAction ( ) {
         windows.getSend ( ).setOnAction (
@@ -135,7 +102,6 @@ public class MultiChatController implements OnMessageListenner {
                             System.out.println ( "me llegaron los usuarios" );
                             UserInside us = gson.fromJson ( msg, UserInside.class );
                             fillList ( us.getSessions () );
-                            fillButtons ( us.getSessions ( ) );
 
                             break;
 
