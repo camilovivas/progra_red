@@ -33,7 +33,16 @@ public class TCPConnection extends Thread {
             return instance;
         }
 
-        public void setPuerto ( int puerto ) {
+    public ArrayList<String> getSessions ( ) {
+        ArrayList<String> toReturn = new ArrayList<> ( );
+
+        for (int i = 0; i < sessions.size ( ); i++) {
+            toReturn.add ( sessions.get ( i ).getId () );
+        }
+        return toReturn;
+    }
+
+    public void setPuerto ( int puerto ) {
             this.puerto = puerto;
         }
 

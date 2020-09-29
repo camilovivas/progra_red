@@ -1,7 +1,6 @@
 package comm;
 
 import java.io.IOException;
-import java.net.ServerSocket;
 import java.net.Socket;
 
 public class TCPConnection extends Thread {
@@ -39,11 +38,11 @@ public class TCPConnection extends Thread {
             System.out.println ( "conectandome..." );
             socket = new Socket ( ip, puerto );
             System.out.println ( "conectado" );
-            connectionListenner.onConnection ();
+            //connectionListenner.onConnection ();
             receptor = new Receptor ( socket.getInputStream ( ) );
-            //receptor.setListenner ( messageListenner );
             receptor.start ( );
             emisor = new Emisor ( socket.getOutputStream ( ) );
+            connectionListenner.onConnectionSend ();
 
         } catch ( IOException e ) {
             e.printStackTrace ( );

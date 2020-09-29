@@ -34,12 +34,7 @@ public class MultichatWindows extends Stage {
         controller = new MultiChatController (this) ;
     }
 
-    public void fillButtons(){
-        for (int i = 0; i < 50; i++) {
-            Button bt = new Button ( i+"" );
-            clients.getChildren ().add( bt);
-        }
-    }
+
 
     public void init(){
         hb = new HBox ( );
@@ -47,7 +42,7 @@ public class MultichatWindows extends Stage {
         scroll = new ScrollPane ( );
         clients = new VBox ( );
         scroll.setContent ( clients );
-        fillButtons ();
+
 
         vb = new VBox ( );
         messageArea = new TextArea ( );

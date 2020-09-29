@@ -23,7 +23,7 @@ public class Receptor extends Thread {
 
             while(true){
                 String msg = br.readLine ();
-                listener.onMessage (session, msg );
+                if(listener != null)listener.onMessage (session, msg );
             }
 
         } catch (IOException e) {

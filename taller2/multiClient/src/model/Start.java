@@ -46,6 +46,10 @@ public class Start implements OnConnectionListenner, OnMessageListenner {
                     //TODO AVISAR A AL CLIENTE QUE QUEDO MALA Y QUE REBOTE OTRA VEEZ LLA PANTALLA DE LOGIN Y DARLE .CLOSE A LA CONEXION
                 }
                 break;
+            case "UserInside":
+                UserInside us = new UserInside ( connection.getSessions () );
+                String users = gson.toJson ( us );
+                connection.sendBroadcast ( users );
 
         }
     }

@@ -1,7 +1,5 @@
 package model;
 
-import comm.Session;
-
 import java.util.ArrayList;
 
 public class UserInside {
