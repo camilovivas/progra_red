@@ -6,6 +6,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class MultichatWindows extends Stage {
@@ -15,6 +16,8 @@ public class MultichatWindows extends Stage {
     private ScrollPane scroll;
     private VBox clients;
     private ArrayList<Button> clientsConnected;
+
+    private ListView<String> listUsers;
 
     private VBox vb;
 
@@ -41,7 +44,8 @@ public class MultichatWindows extends Stage {
 
         scroll = new ScrollPane ( );
         clients = new VBox ( );
-        scroll.setContent ( clients );
+        listUsers = new ListView<> ( );
+        scroll.setContent ( listUsers );
 
 
         vb = new VBox ( );
@@ -79,5 +83,9 @@ public class MultichatWindows extends Stage {
 
     public VBox getClients ( ) {
         return clients;
+    }
+
+    public ListView getListUsers ( ) {
+        return listUsers;
     }
 }

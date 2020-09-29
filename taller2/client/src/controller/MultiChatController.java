@@ -45,7 +45,7 @@ public class MultiChatController implements OnMessageListenner {
 
                     for (int i = 0; i < input.size ( ); i++) {
                         if ( input.get ( i ).equals ( owner ) ) {
-                            Button bt = new Button ( input.get ( i ) + "(yo)" );
+                            Button bt = new Button ( input.get ( i ) + " (yo)" );
                             bt.setDisable ( true );
                             windows.getClientsConnected ( ).add ( bt );
                             windows.getClients ( ).getChildren ( ).add ( bt );
@@ -59,12 +59,36 @@ public class MultiChatController implements OnMessageListenner {
         );
     }
 
+    public void fillList ( ArrayList<String> input ) {
+        Platform.runLater (
+                ()->{
+
+                    windows.getListUsers ( ).getItems ( ).clear ( );
+                    windows.getListUsers ( ).getItems ( ).add ( "todos" );
+                    for (int i = 0; i < input.size ( ); i++) {
+                        String item = input.get ( i );
+                        if ( item.equals ( owner ) ) {
+                            windows.getListUsers ( ).getItems ( ).add ( item + " (yo)" );
+                        } else {
+                            windows.getListUsers ( ).getItems ( ).add ( item );
+                        }
+
+                    }
+                }
+        );
+    }
+
+    public String seleccted2(){
+         return windows.getListUsers ().getSelectionModel ().getSelectedItem ().toString ();
+      }
+
     public String seleccted ( ) {
         ArrayList<Button> buttons = windows.getClientsConnected ( );
         String toReturn = "";
         for (int i = 0; i < buttons.size ( ); i++) {
-            if ( buttons.get ( i ).isFocused ( ) ) {
+            if ( buttons.get ( i ).isFocused () ) {
                 toReturn = buttons.get ( i ).getText ( );
+                System.out.println ( "el boton seleccionadco fue" + toReturn );
             }
         }
         return toReturn;
@@ -73,7 +97,8 @@ public class MultiChatController implements OnMessageListenner {
     public void btSendAction ( ) {
         windows.getSend ( ).setOnAction (
                 ( e ) -> {
-                    String option = seleccted ( );
+                    System.out.println (seleccted2 () );
+                    String option = seleccted2 ( );
                     String message = windows.getMessage ( ).getText ( );
                     String id = owner;
                     if ( option.equalsIgnoreCase ( "todos" ) ) {
@@ -83,6 +108,8 @@ public class MultiChatController implements OnMessageListenner {
                         String toSend = gson.toJson ( msg );
                         connection.getEmisor ( ).sendMessage ( toSend );
 
+                    } else if ( option.equalsIgnoreCase ( "" ) ) {
+                        System.out.println ( "no selecionaste a quien enviar" );
                     } else {
                         DirectMessage dmsg = new DirectMessage ( id, message, option );
                         Gson gson = new Gson ( );
@@ -107,6 +134,7 @@ public class MultiChatController implements OnMessageListenner {
                         case "UserInside":
                             System.out.println ( "me llegaron los usuarios" );
                             UserInside us = gson.fromJson ( msg, UserInside.class );
+                            fillList ( us.getSessions () );
                             fillButtons ( us.getSessions ( ) );
 
                             break;
