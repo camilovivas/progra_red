@@ -53,6 +53,7 @@ public class Start implements OnConnectionListenner, OnMessageListenner {
                 }
                 break;
             case "UserInside":
+                System.out.println ("me esta pidiendo los usuarios" );
                 UserInside us = new UserInside ( connection.getSessions () );
                 String users = gson.toJson ( us );
                 connection.sendBroadcast ( users );

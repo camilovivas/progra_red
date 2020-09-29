@@ -67,6 +67,10 @@ public class TCPConnection extends Thread {
 
     }
 
+    public Receptor getReceptor ( ) {
+        return receptor;
+    }
+
     public Emisor getEmisor () {
         return emisor;
     }

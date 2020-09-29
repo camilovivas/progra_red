@@ -21,10 +21,19 @@ public class MultiChatController implements OnMessageListenner {
 
     public MultiChatController ( MultichatWindows input, String owner ) {
         connection = TCPConnection.getInstance ( );
-        connection.setMessageListenner ( this );
+        connection.getReceptor ().setListenner ( this );
         this.windows = input;
         this.owner = owner;
+        mandame();
         btSendAction ( );
+    }
+
+    public void mandame(){
+        Gson gson = new Gson ();
+        UserInside s = new UserInside ( null );
+        String json = gson.toJson (  s);
+        connection.getEmisor ().sendMessage ( json);
+        System.out.println ("le pedi los usuarios" );
     }
 
     public void fillButtons ( ArrayList<String> input ) {
@@ -33,6 +42,10 @@ public class MultiChatController implements OnMessageListenner {
                     windows.getClientsConnected ( ).clear ( );
                     windows.getClientsConnected ( ).add ( new Button ( "todos" ) );
                     for (int i = 0; i < input.size ( ); i++) {
+                        if(input.get ( i ).equals ( owner )){
+                            Button bt = new Button ( input.get ( i ) + "(yo)");
+                            bt.setDisable ( true );
+                        }
                         Button bt = new Button ( input.get ( i ) );
                         windows.getClientsConnected ( ).add ( bt );
                     }
@@ -56,7 +69,7 @@ public class MultiChatController implements OnMessageListenner {
                 ( e ) -> {
                     String option = seleccted ( );
                     String message = windows.getMessage ( ).getText ( );
-                    String id = UUID.randomUUID ( ).toString ( );
+                    String id = owner;
                     if ( option.equalsIgnoreCase ( "todos" ) ) {
 
                         Message msg = new Message ( id, message );
@@ -83,9 +96,10 @@ public class MultiChatController implements OnMessageListenner {
                     switch (type.getType ( )) {
                         case "Message":
                             Message m = gson.fromJson ( msg, Message.class );
-                            windows.getMessageArea ( ).appendText ( m.getBody ( ) );
+                            windows.getMessageArea ( ).appendText ( m.getId ()+": "+m.getBody ( ) );
                             break;
                         case "UserInside":
+                            System.out.println ("me llegaron los usuarios" );
                             UserInside us = gson.fromJson ( msg, UserInside.class );
                             fillButtons ( us.getSessions ( ) );
 

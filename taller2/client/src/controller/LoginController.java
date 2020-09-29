@@ -69,5 +69,8 @@ public class LoginController implements OnConnectionListenner, OnMessageListenne
                     }
             );
         }
+        else{
+            System.out.println ("mk me llegaron al login" );
+        }
     }
 }
