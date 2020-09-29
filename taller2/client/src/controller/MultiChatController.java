@@ -14,11 +14,16 @@ public class MultiChatController implements OnMessageListenner {
     private MultichatWindows windows;
     private TCPConnection connection;
 
+    //esta es la pantalla de chat del usuario
+    private String owner;
 
-    public MultiChatController ( MultichatWindows input ) {
+
+
+    public MultiChatController ( MultichatWindows input, String owner ) {
         connection = TCPConnection.getInstance ( );
         connection.setMessageListenner ( this );
         this.windows = input;
+        this.owner = owner;
         btSendAction ( );
     }
 

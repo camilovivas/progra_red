@@ -6,20 +6,21 @@ import javafx.application.Platform;
 import model.*;
 import view.*;
 
-public class LoginController implements OnConnectionListenner {
+public class LoginController implements OnConnectionListenner, OnMessageListenner {
 
     private LoginWindow windows;
     private TCPConnection connection;
 
-    public LoginController( LoginWindow input){
-        this.windows= input;
-        init();
+    public LoginController ( LoginWindow input ) {
+        this.windows = input;
+        init ( );
     }
 
-    public void init(){
-        connection = TCPConnection.getInstance ();
+    public void init ( ) {
+        connection = TCPConnection.getInstance ( );
         connection.setConnectionListenner ( this );
-        btAction ();
+        connection.setMessageListenner ( this );
+        btAction ( );
     }
 
     public void btAction ( ) {
@@ -36,24 +37,37 @@ public class LoginController implements OnConnectionListenner {
     @Override
     public void onConnection ( ) {
         Platform.runLater (
-                ()->{
+                ( ) -> {
 
-                    MultichatWindows chat = new MultichatWindows ();
-                    chat.show ();
-                    windows.close ();
+                    MultichatWindows chat = new MultichatWindows ( windows.getName ( ).getText ( ) );
+                    chat.show ( );
+                    windows.close ( );
                 }
         );
     }
 
     @Override
     public void onConnectionSend ( ) {
-        String username = windows.getName ().getText ();
-        User userToSend = new User (username);
-        Gson gson = new Gson ();
+        String username = windows.getName ( ).getText ( );
+        User userToSend = new User ( username );
+        Gson gson = new Gson ( );
         String json = gson.toJson ( userToSend );
-        connection.getEmisor ().sendMessage ( json );
+        connection.getEmisor ( ).sendMessage ( json );
 
     }
 
 
+    @Override
+    public void onMessage ( String msg ) {
+        if ( msg.equals ( "permitido" ) ) {
+            connection.entre ( );
+        } else if(msg.equals ( "noPermitido" )) {
+            Platform.runLater (
+                    ( ) -> {
+                        windows.getNotAccess ( ).setText ( "NOMBRE REPETIDO" );
+
+                    }
+            );
+        }
+    }
 }

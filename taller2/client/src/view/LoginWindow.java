@@ -14,6 +14,7 @@ public class LoginWindow extends Stage {
     private Scene scene;
     private Text title;
     private Text subTittle;
+    private Text notAccess;
 
     private LoginController controller;
 
@@ -25,10 +26,11 @@ public class LoginWindow extends Stage {
         vb =  new VBox ( );
         title = new Text ( "PRChat" );
         subTittle = new Text ( "Escoge tu nombre de ussuario" );
+        notAccess = new Text();
         name = new TextField ( "nombre de usuario" );
         btIngresar = new Button ( "ingresar" );
 
-        vb.getChildren ().addAll ( title, subTittle, name, btIngresar );
+        vb.getChildren ().addAll ( title, subTittle, name, notAccess, btIngresar );
         scene = new Scene (vb);
         this.setScene ( scene );
         controller = new LoginController ( this);
@@ -40,5 +42,9 @@ public class LoginWindow extends Stage {
 
     public TextField getName ( ) {
         return name;
+    }
+
+    public Text getNotAccess ( ) {
+        return notAccess;
     }
 }

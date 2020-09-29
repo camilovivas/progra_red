@@ -28,10 +28,10 @@ public class MultichatWindows extends Stage {
     private MultiChatController controller;
 
 
-    public MultichatWindows(){
+    public MultichatWindows(String owner){
         clientsConnected =  new ArrayList<> ( );
         init ();
-        controller = new MultiChatController (this) ;
+        controller = new MultiChatController (this, owner) ;
     }
 
 

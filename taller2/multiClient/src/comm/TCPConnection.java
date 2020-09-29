@@ -106,4 +106,8 @@ public class TCPConnection extends Thread {
             sessions.add ( s );
             connectionListenner.onConnection ( s.getId () );
         }
+
+        public void remove(Session session){
+            waitingRoom.remove ( session );
+        }
 }

@@ -12,11 +12,12 @@ public class UserInside {
     public UserInside ( ) {
     }
 
-    public UserInside ( ArrayList<String> sessions ) {
+    public UserInside ( ArrayList<String> sessions) {
         this.sessions = sessions;
     }
 
     public ArrayList<String> getSessions ( ) {
         return sessions;
     }
+
 }

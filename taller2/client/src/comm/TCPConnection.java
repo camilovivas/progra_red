@@ -39,11 +39,10 @@ public class TCPConnection extends Thread {
             socket = new Socket ( ip, puerto );
             System.out.println ( "conectado" );
             receptor = new Receptor ( socket.getInputStream ( ) );
+            receptor.setListenner ( messageListenner );
             receptor.start ( );
             emisor = new Emisor ( socket.getOutputStream ( ) );
             connectionListenner.onConnectionSend ();
-            //SUPONIENDO QUE SI FUE ACEPTADO
-            //connectionListenner.onConnection ();
 
         } catch ( IOException e ) {
             e.printStackTrace ( );
@@ -56,11 +55,16 @@ public class TCPConnection extends Thread {
     }
 
     public void setMessageListenner ( OnMessageListenner messageListenner ) {
-        this.receptor.setListenner ( messageListenner );
+        this.messageListenner = messageListenner;
     }
 
     public void setConnectionListenner ( OnConnectionListenner connectionListenner ) {
         this.connectionListenner = connectionListenner;
+    }
+
+    public void entre(){
+        connectionListenner.onConnection ();
+
     }
 
     public Emisor getEmisor () {

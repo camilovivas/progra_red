@@ -25,7 +25,6 @@ public class Start implements OnConnectionListenner, OnMessageListenner {
     @Override
     public void onMessage ( Session s, String msg ) {
         Gson gson = new Gson ( );
-        System.out.println ("si lllego el user" );
         Generic type = gson.fromJson ( msg, Generic.class );
 
         switch (type.getType ( )) {
@@ -39,17 +38,18 @@ public class Start implements OnConnectionListenner, OnMessageListenner {
                 connection.sendDirectMessage ( priv.getClientId (), msgToSend );
                 break;
             case "User":
+                System.out.println ("si llego el user" );
                 User user = gson.fromJson ( msg, User.class );
                 if ( !connection.searchClient ( user.getUserName ( ) ) ) {
+                    System.out.println ("fue aceptado" );
                     connection.addClient ( s, user );
-                    //connection.sendDirectMessage ( user.getUserName (), "permitido" );
-                    UserInside us = new UserInside ( connection.getSessions () );
-                    String users = gson.toJson ( us );
-                    connection.sendBroadcast ( users );
+                    connection.sendDirectMessage ( user.getUserName (), "permitido" );
 
                 } else {
+                    connection.sendDirectMessage ( user.getUserName (), "noPermitido" );
+                    System.out.println ("esta repetido" );
+                    connection.remove ( s );
                     s.endConnection ( );
-                    //TODO AVISAR A AL CLIENTE QUE QUEDO MALA Y QUE REBOTE OTRA VEEZ LLA PANTALLA DE LOGIN Y DARLE .CLOSE A LA CONEXION
                 }
                 break;
             case "UserInside":
