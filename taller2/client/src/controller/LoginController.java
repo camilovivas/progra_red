@@ -43,6 +43,7 @@ public class LoginController implements OnConnectionListenner {
     public void onConnection ( ) {
         Platform.runLater (
                 ()->{
+
                     MultichatWindows chat = new MultichatWindows ();
                     chat.show ();
                     windows.close ();

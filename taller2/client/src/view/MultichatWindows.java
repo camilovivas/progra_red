@@ -29,9 +29,9 @@ public class MultichatWindows extends Stage {
 
 
     public MultichatWindows(){
-        controller = new MultiChatController (this) ;
         clientsConnected =  new ArrayList<> ( );
         init ();
+        controller = new MultiChatController (this) ;
     }
 
     public void fillButtons(){

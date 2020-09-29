@@ -12,13 +12,19 @@ import java.util.UUID;
 
 public class MultiChatController implements OnMessageListenner {
     private MultichatWindows windows;
+    private String username;
     private TCPConnection connection;
 
 
     public MultiChatController(MultichatWindows input){
         connection = TCPConnection.getInstance ();
+        connection.setMessageListenner ( this );
         this.windows = input;
         btSendAction ();
+    }
+
+    public void setUsername ( String username ) {
+        this.username = username;
     }
 
     public String seleccted(){
@@ -61,9 +67,21 @@ public class MultiChatController implements OnMessageListenner {
         Platform.runLater (
                 ( ) -> {
 
+
                     Gson gson = new Gson ( );
-                    Message m = gson.fromJson ( msg, Message.class );
-                    windows.getMessageArea ( ).appendText ( m.getBody ( ) );
+                    Generic type = gson.fromJson ( msg, Generic.class );
+                    switch (type.getType ()){
+                        case "Message":
+                            Message m = gson.fromJson ( msg, Message.class );
+                            windows.getMessageArea ( ).appendText ( m.getBody ( ) );
+                            break;
+                        case "UserInside":
+                            //UserInside
+
+                            break;
+
+
+                    }
                 }
         );
     }

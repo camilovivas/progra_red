@@ -83,7 +83,7 @@ public class TCPConnection extends Thread {
 
         public boolean searchClient(String username){
             boolean toReturn = false;
-            for (int i = 0; i < sessions.size (); i++) {
+            for (int i = 0; i < sessions.size () && !toReturn; i++) {
                 if(sessions.get ( i ).getId ().equalsIgnoreCase ( username ) ){
                     toReturn = true;
                 }

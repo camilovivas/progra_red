@@ -22,7 +22,6 @@ public class LoginWindow extends Stage {
     }
 
     public void init(){
-        controller = new LoginController ( this);
         vb =  new VBox ( );
         title = new Text ( "PRChat" );
         subTittle = new Text ( "Escoge tu nombre de ussuario" );
@@ -32,6 +31,7 @@ public class LoginWindow extends Stage {
         vb.getChildren ().addAll ( title, subTittle, name, btIngresar );
         scene = new Scene (vb);
         this.setScene ( scene );
+        controller = new LoginController ( this);
     }
 
     public Button getBtIngresar ( ) {

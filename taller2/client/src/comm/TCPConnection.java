@@ -36,12 +36,12 @@ public class TCPConnection extends Thread {
     @Override
     public void run ( ) {
         try {
-            System.out.println ( "esperando cliente" );
+            System.out.println ( "conectandome..." );
             socket = new Socket ( ip, puerto );
             System.out.println ( "conectado" );
-
+            connectionListenner.onConnection ();
             receptor = new Receptor ( socket.getInputStream ( ) );
-            receptor.setListenner ( messageListenner );
+            //receptor.setListenner ( messageListenner );
             receptor.start ( );
             emisor = new Emisor ( socket.getOutputStream ( ) );
 
