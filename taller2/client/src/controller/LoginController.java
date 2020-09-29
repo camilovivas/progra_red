@@ -52,5 +52,8 @@ public class LoginController implements OnConnectionListenner {
         Gson gson = new Gson ();
         String json = gson.toJson ( userToSend );
         connection.getEmisor ().sendMessage ( json );
+
     }
+
+
 }

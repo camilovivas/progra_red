@@ -53,8 +53,9 @@ public class TCPConnection extends Thread {
                 while ( true ) {
                     System.out.println ( "esperando cliente" );
                     Socket socket = server.accept ( );
-                    System.out.println ( "conectado" );
+                    System.out.println ( "Verificando..." );
                     Session session = new Session ( socket );
+                    session.getReceptor ().setListenner (  messageListenner);
                     waitingRoom.add ( session );
                 }
             } catch ( IOException e ) {
@@ -63,9 +64,7 @@ public class TCPConnection extends Thread {
         }
 
         public void setMessageListenner ( OnMessageListenner messageListenner ) {
-            for (Session session : sessions) {
-                session.getReceptor ( ).setListenner ( messageListenner );
-            }
+          this.messageListenner = messageListenner;
         }
 
         public void setConnectionListenner ( OnConnectionListenner connectionListenner ) {

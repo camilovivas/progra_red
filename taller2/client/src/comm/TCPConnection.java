@@ -38,11 +38,12 @@ public class TCPConnection extends Thread {
             System.out.println ( "conectandome..." );
             socket = new Socket ( ip, puerto );
             System.out.println ( "conectado" );
-            //connectionListenner.onConnection ();
             receptor = new Receptor ( socket.getInputStream ( ) );
             receptor.start ( );
             emisor = new Emisor ( socket.getOutputStream ( ) );
             connectionListenner.onConnectionSend ();
+            //SUPONIENDO QUE SI FUE ACEPTADO
+            //connectionListenner.onConnection ();
 
         } catch ( IOException e ) {
             e.printStackTrace ( );

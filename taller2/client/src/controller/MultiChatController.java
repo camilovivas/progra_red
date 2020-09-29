@@ -23,12 +23,16 @@ public class MultiChatController implements OnMessageListenner {
     }
 
     public void fillButtons ( ArrayList<String> input ) {
-        windows.getClientsConnected ( ).clear ();
-        windows.getClientsConnected ().add ( new Button ( "todos" ) );
-        for (int i = 0; i < input.size ( ); i++) {
-            Button bt = new Button ( input.get ( i ) );
-            windows.getClientsConnected ( ).add ( bt );
-        }
+        Platform.runLater (
+                ()->{
+                    windows.getClientsConnected ( ).clear ( );
+                    windows.getClientsConnected ( ).add ( new Button ( "todos" ) );
+                    for (int i = 0; i < input.size ( ); i++) {
+                        Button bt = new Button ( input.get ( i ) );
+                        windows.getClientsConnected ( ).add ( bt );
+                    }
+                }
+        );
     }
 
     public String seleccted ( ) {

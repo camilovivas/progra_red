@@ -14,9 +14,9 @@ public class Session {
     public Session (Socket socket ) {
         this.socket = socket;
         try {
-            emisor = new Emisor ( socket.getOutputStream ( ) );
             receptor = new Receptor (this, socket.getInputStream ( ) );
             receptor.start ( );
+            emisor = new Emisor ( socket.getOutputStream ( ) );
         } catch ( IOException e ) {
             e.printStackTrace ( );
         }
