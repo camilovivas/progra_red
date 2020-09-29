@@ -76,4 +76,8 @@ public class MultichatWindows extends Stage {
     public ArrayList<Button> getClientsConnected ( ) {
         return clientsConnected;
     }
+
+    public VBox getClients ( ) {
+        return clients;
+    }
 }
