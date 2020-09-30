@@ -89,6 +89,14 @@ public class TCPConnection extends Thread {
         }
     }
 
+    public void sendDirectMessageRepeat ( Session s, String msg ) {
+            if ( waitingRoom.contains ( s )) {
+                int i = waitingRoom.indexOf ( s );
+                waitingRoom.get ( i ).getEmisor ( ).sendMessage ( msg );
+            }
+
+    }
+
     public boolean searchClient ( String username ) {
         boolean toReturn = false;
         for (int i = 0; i < sessions.size ( ) && !toReturn; i++) {

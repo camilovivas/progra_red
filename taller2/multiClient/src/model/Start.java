@@ -46,7 +46,7 @@ public class Start implements OnConnectionListenner, OnMessageListenner {
                     connection.sendDirectMessage ( user.getUserName (), "permitido" );
 
                 } else {
-                    connection.sendDirectMessage ( user.getUserName (), "noPermitido" );
+                    connection.sendDirectMessageRepeat ( s, "noPermitido" );
                     System.out.println ("esta repetido" );
                     connection.remove ( s );
                     //s.endConnection ( );
