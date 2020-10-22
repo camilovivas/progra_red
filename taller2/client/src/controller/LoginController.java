@@ -1,18 +1,23 @@
 package controller;
 
 import com.google.gson.Gson;
-import comm.*;
+import comm.OnConnectionListenner;
+import comm.OnMessageListenner;
+import comm.TCPConnection;
 import javafx.application.Platform;
-import model.*;
-import view.*;
+import model.User;
+import view.LoginWindow;
+import view.MultichatWindows;
 
 public class LoginController implements OnConnectionListenner, OnMessageListenner {
 
     private LoginWindow windows;
     private TCPConnection connection;
+    private int stop;
 
     public LoginController ( LoginWindow input ) {
         this.windows = input;
+        stop = 0;
         init ( );
     }
 
@@ -28,7 +33,10 @@ public class LoginController implements OnConnectionListenner, OnMessageListenne
                 ( e ) -> {
                     connection.setIp ( "127.0.0.1" );
                     connection.setPuerto ( 5000 );
-                    connection.start ( );
+                    //if ( stop == 0 ) {
+                        connection.start ( );
+                        stop++;
+                    //}
                 }
         );
     }
@@ -61,16 +69,19 @@ public class LoginController implements OnConnectionListenner, OnMessageListenne
     public void onMessage ( String msg ) {
         if ( msg.equals ( "permitido" ) ) {
             connection.entre ( );
-        } else if(msg.equals ( "noPermitido" )) {
-            Platform.runLater (
-                    ( ) -> {
+        } else if ( msg.equals ( "noPermitido" ) ) {
+            //Platform.runLater (
+              //      ( ) -> {
+//                        windows.close ( );
+  //                      LoginWindow n = new LoginWindow ( );
                         windows.getNotAccess ( ).setText ( "NOMBRE REPETIDO" );
+      //                  n.show ( );
 
-                    }
-            );
-        }
-        else{
-            System.out.println ("mk me llegaron al login" );
+
+                //    }
+            //);
+        } else {
+            System.out.println ( "mk me llegaron al login" );
         }
     }
 }
