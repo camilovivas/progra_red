@@ -6,9 +6,11 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.example.controller.MainController;
 
 
 public class MainWindows extends Stage {
+
 
     private VBox pane;
     private Scene scene;
@@ -18,10 +20,10 @@ public class MainWindows extends Stage {
 
     public MainWindows (){
         init();
+        MainController controller = new MainController (this);
     }
 
     public void init(){
-
        pane = new VBox ( );
        tittle = new Text ( "Bienvenid@!" );
        accion = new Text ( "Que accion desea realizar" );

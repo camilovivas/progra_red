@@ -23,21 +23,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b7d8bbd-711d-4651-be5e-71524fb56853" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/progra_movies.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../taller2/client/src/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../taller2/client/src/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../taller2/out/production/client/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../taller2/out/production/client/controller/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../taller2/out/production/client/controller/MultiChatController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../taller2/out/production/client/controller/MultiChatController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../taller2/out/production/multiClient/comm/TCPConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/../taller2/out/production/multiClient/comm/TCPConnection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../taller2/out/production/multiClient/model/Start.class" beforeDir="false" afterPath="$PROJECT_DIR$/../taller2/out/production/multiClient/model/Start.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/comm/SQLConnection.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/main/Launcher.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/taller3.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/view/InsertWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/view/InsertWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/view/MainWindows.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/view/MainWindows.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/view/SearchWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/view/SearchWindow.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +46,9 @@
     </option>
   </component>
   <component name="ProjectId" id="1jFX3h7drFsCalxRInewLtReN7j" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -65,6 +58,31 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/org/example" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Camiilo Mañunga\git\progra_red\taller3\src\main\java\org\example" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -74,8 +92,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1603400618935</updated>
-      <workItem from="1603400621546" duration="628000" />
+      <workItem from="1603400621546" duration="4118000" />
     </task>
+    <task id="LOCAL-00001" summary="implement the view">
+      <created>1603401697489</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1603401697489</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -92,7 +118,15 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="implement the view" />
+    <option name="LAST_COMMIT_MESSAGE" value="implement the view" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="488" y="80" key="#com.intellij.ide.util.MemberChooser" timestamp="1603404615141">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="488" y="80" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1603404615141" />
     <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1603400663573">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -109,5 +143,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1603400663573" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1603401758208">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1603401758208" />
   </component>
 </project>
