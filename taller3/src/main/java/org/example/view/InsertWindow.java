@@ -5,12 +5,13 @@ import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.example.controller.InsertController;
 
 public class InsertWindow extends Stage {
 
     private VBox pane;
-    private Text movieName, movieYear, genero;
-    private TextArea name, year;
+    private Text movieName, movieYear, genero, actor;
+    private TextArea name, year, nameActor;
     private ListView<String> listGenero;
     private Scene scene;
     private Button addMovie;
@@ -18,6 +19,7 @@ public class InsertWindow extends Stage {
 
     public InsertWindow ( ) {
         init();
+        InsertController controller = new InsertController (this);
     }
 
     public void init(){
@@ -27,6 +29,9 @@ public class InsertWindow extends Stage {
 
         movieYear = new Text ( "inserte el año de creacion de la pelicula" );
         year = new TextArea (  );
+
+        actor = new Text ( "inserte el nombre del actor");
+        nameActor = new TextArea (  );
 
         genero = new Text ( "seleccione el genero de la pelicula" );
         listGenero = new ListView<> (  );
