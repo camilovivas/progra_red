@@ -1,10 +1,11 @@
 package org.example.comm;
 
 import org.example.model.*;
+
 import java.sql.*;
 import java.util.ArrayList;
 
-public class SQLConnection {
+public class SQLConnection<a> {
 
     private Connection connection;
 
@@ -60,12 +61,32 @@ public class SQLConnection {
         return toReturn;
     }
 
-    public ArrayList<Movie> searchMovieByGenero( int genero){
+    public Movie searchMovie ( String name ) {
+        Movie toReturn = null;
+        try {
+            Statement statement = connection.createStatement ( );
+            String sql = "select  * from peliculas where peliculas.nombre =" + name;
+
+            ResultSet m = statement.executeQuery ( sql );
+            m.next ( );
+            int id = m.getInt ( 1 );
+            String nombre = m.getString ( 2 );
+            int year = m.getInt ( 3 );
+            int generoID = m.getInt ( 4 );
+            toReturn = new Movie ( id, nombre, year, generoID );
+        } catch ( SQLException throwables ) {
+            throwables.printStackTrace ( );
+        }
+        return toReturn;
+
+    }
+
+    public ArrayList<Movie> searchMovieByGenero ( int genero ) {
         Statement statement = null;
         ArrayList<Movie> toReturn = null;
         try {
             statement = connection.createStatement ( );
-            ResultSet movies = statement.executeQuery ( "select * from peliculas where peliculas.generoID ="+ genero );
+            ResultSet movies = statement.executeQuery ( "select * from peliculas where peliculas.generoID =" + genero );
             //TODO PROBAR LINEA EN MYADMIN
             while ( movies.next ( ) ) {
                 int id = movies.getInt ( 1 );
@@ -79,5 +100,37 @@ public class SQLConnection {
             throwables.printStackTrace ( );
         }
         return toReturn;
+    }
+
+    public void insertMovie ( Movie movie ) {
+        try {
+            Statement statement = connection.createStatement ( );
+            String sql = ("INSERT INTO peliculas (nombre, year, generoID) VALUES ('$NOMBRE',$YEAR, $GENERO)")
+                    .replace ( "$NOMBRE", movie.getNombre ( ) )
+                    .replace ( "$YEAR", "" + movie.getYear ( ) )
+                    .replace ( "$GENRO", "" + movie.getGeneroID ( ) );
+            statement.execute ( sql );
+
+        } catch ( SQLException throwables ) {
+            throwables.printStackTrace ( );
+        }
+    }
+
+    public void joinMovieAndActor ( ) {
+
+    }
+
+
+    public void insertActor ( Actor actor ) {
+        try {
+            Statement statement = connection.createStatement ( );
+            String sql = ("INSERT INTO actores (nombre, apellido) values ('$NOMBRE' , '$APELLIDO')")
+                    .replace ( "$NOMBRE", actor.getNombre ( ) )
+                    .replace ( "$APELLIDO", actor.getApellido ( ) );
+            statement.execute ( sql );
+
+        } catch ( SQLException throwables ) {
+            throwables.printStackTrace ( );
+        }
     }
 }
