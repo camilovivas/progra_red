@@ -1,5 +1,6 @@
 package org.example.controller;
 
+import org.example.comm.SQLConnection;
 import org.example.view.*;
 
 public class MainController {
@@ -8,6 +9,9 @@ public class MainController {
 
     public MainController(MainWindows window){
         this.window = window;
+        SQLConnection sql = new SQLConnection ();
+        acctionInsert ();
+        acctionSearch ();
     }
 
     public void acctionInsert(){
