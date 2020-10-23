@@ -45,7 +45,7 @@ public class SQLConnection<a> {
 
     public ArrayList<Genero> getAllGeneros ( ) {
         Statement statement = null;
-        ArrayList<Genero> toReturn = null;
+        ArrayList<Genero> toReturn = new ArrayList<> ( );
         try {
             statement = connection.createStatement ( );
             ResultSet generos = statement.executeQuery ( "select * from genero" );
@@ -53,6 +53,25 @@ public class SQLConnection<a> {
                 int id = generos.getInt ( 1 );
                 String tipo = generos.getString ( 2 );
                 toReturn.add ( new Genero ( id, tipo ) );
+            }
+
+        } catch ( SQLException throwables ) {
+            throwables.printStackTrace ( );
+        }
+        return toReturn;
+    }
+
+    public ArrayList<Actor> getAllActores(){
+        Statement statement = null;
+        ArrayList<Actor> toReturn = new ArrayList<> ( );
+        try {
+            statement = connection.createStatement ( );
+            ResultSet actores = statement.executeQuery ( "select * from actores" );
+            while ( actores.next ( ) ) {
+                int id = actores.getInt ( 1 );
+                String nombre = actores.getString ( 2 );
+                String apellido = actores.getString ( 3 );
+                toReturn.add ( new Actor ( id, nombre, apellido ) );
             }
 
         } catch ( SQLException throwables ) {

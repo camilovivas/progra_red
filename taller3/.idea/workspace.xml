@@ -22,10 +22,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3b7d8bbd-711d-4651-be5e-71524fb56853" name="Default Changelist" comment="end the view">
+    <list default="true" id="3b7d8bbd-711d-4651-be5e-71524fb56853" name="Default Changelist" comment="work in SQL">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/comm/SQLConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/comm/SQLConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/InsertController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/InsertController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/view/InsertWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/view/InsertWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/view/MainWindows.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/view/MainWindows.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,19 +80,35 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration name="Launcher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.main.Launcher" />
+      <module name="progra_movies" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Launcher" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -100,7 +119,8 @@
       <option name="presentableId" value="Default" />
       <updated>1603400618935</updated>
       <workItem from="1603400621546" duration="6158000" />
-      <workItem from="1603417414903" duration="12060000" />
+      <workItem from="1603417414903" duration="12178000" />
+      <workItem from="1603467705720" duration="15932000" />
     </task>
     <task id="LOCAL-00001" summary="implement the view">
       <created>1603401697489</created>
@@ -123,7 +143,21 @@
       <option name="project" value="LOCAL" />
       <updated>1603421792391</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="work in SQL">
+      <created>1603433082483</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1603433082483</updated>
+    </task>
+    <task id="LOCAL-00005" summary="work in SQL">
+      <created>1603481911755</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1603481911755</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -144,7 +178,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="implement the view" />
     <MESSAGE value="end the view" />
-    <option name="LAST_COMMIT_MESSAGE" value="end the view" />
+    <MESSAGE value="work in SQL" />
+    <option name="LAST_COMMIT_MESSAGE" value="work in SQL" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Deployment" timestamp="1603430351455">
@@ -163,30 +198,30 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1603430289456" />
-    <state x="488" y="80" key="#com.intellij.ide.util.MemberChooser" timestamp="1603432695069">
+    <state x="488" y="80" key="#com.intellij.ide.util.MemberChooser" timestamp="1603491432790">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="488" y="80" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1603432695069" />
+    <state x="488" y="80" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1603491432790" />
     <state x="462" y="119" key="FileChooserDialogImpl" timestamp="1603429312815">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="462" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1603429312815" />
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1603400663573">
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1603494746510">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1603400663573" />
-    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1603400663573">
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1603494746510" />
+    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1603494746509">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1603400663573" />
-    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1603400663572">
+    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1603494746509" />
+    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1603494746509">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1603400663572" />
-    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1603400663573">
+    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1603494746509" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1603494746509">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1603400663573" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1603494746509" />
     <state x="184" y="9" key="SettingsEditor" timestamp="1603430535576">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -195,10 +230,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="200" height="441" key="SqlResolveConfigurable/0.0.1366.728@0.0.1366.728" timestamp="1603429658137" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1603421804821">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1603433087014">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1603421804821" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1603433087014" />
     <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog" timestamp="1603430108970">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -207,9 +242,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1603405922322" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1603430459072">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1603493802012">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1603430459072" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1603493802012" />
   </component>
 </project>

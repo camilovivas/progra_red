@@ -1,6 +1,6 @@
 package org.example.controller;
 
-import org.example.comm.SQLConnection;
+
 import org.example.view.*;
 
 public class MainController {
@@ -9,7 +9,6 @@ public class MainController {
 
     public MainController(MainWindows window){
         this.window = window;
-        SQLConnection sql = new SQLConnection ();
         acctionInsert ();
         acctionSearch ();
     }
@@ -28,6 +27,7 @@ public class MainController {
         window.getSearch ().setOnAction (
                 e->{
                     SearchWindow sw = new SearchWindow ();
+                    sw.show ();
 
                 }
         );

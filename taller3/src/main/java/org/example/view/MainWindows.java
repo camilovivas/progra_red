@@ -34,6 +34,7 @@ public class MainWindows extends Stage {
        pane2.getChildren ().addAll ( addMovie, deleteMovie, search );
        pane.getChildren ().addAll ( tittle, accion, pane2 );
        scene = new Scene ( pane );
+       this.setTitle ( "programa de pelis" );
        this.setScene ( scene );
     }
 
