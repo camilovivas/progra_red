@@ -25,7 +25,8 @@
     <list default="true" id="3b7d8bbd-711d-4651-be5e-71524fb56853" name="Default Changelist" comment="work in SQL">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/comm/SQLConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/comm/SQLConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/InsertController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/InsertController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/comm/SQLConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/comm/SQLConnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/controller/InsertController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/controller/InsertController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +108,7 @@
       <workItem from="1603400621546" duration="6158000" />
       <workItem from="1603417414903" duration="12178000" />
       <workItem from="1603467705720" duration="23206000" />
-      <workItem from="1603505528348" duration="4984000" />
+      <workItem from="1603505528348" duration="9228000" />
     </task>
     <task id="LOCAL-00001" summary="implement the view">
       <created>1603401697489</created>
@@ -165,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603501790437</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="fix problems with insert movies">
+      <created>1603512828696</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1603512828697</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,7 +197,8 @@
     <MESSAGE value="work in SQL" />
     <MESSAGE value="work in SQL and change the viwe InsertWindow" />
     <MESSAGE value="add movie and add actor to sql" />
-    <option name="LAST_COMMIT_MESSAGE" value="add movie and add actor to sql" />
+    <MESSAGE value="fix problems with insert movies" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix problems with insert movies" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Deployment" timestamp="1603430351455">
@@ -216,22 +225,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="462" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1603429312815" />
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1603512377338">
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1603513877155">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1603512377338" />
-    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1603512377337">
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1603513877155" />
+    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1603513877155">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1603512377337" />
-    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1603512377337">
+    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1603513877155" />
+    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1603513877155">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1603512377337" />
-    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1603512377338">
+    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1603513877155" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1603513877155">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1603512377338" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1603513877155" />
     <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1603510915542">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -256,10 +265,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="200" height="441" key="SqlResolveConfigurable/0.0.1366.728@0.0.1366.728" timestamp="1603429658137" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1603501795895">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1603512840660">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1603501795895" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1603512840660" />
     <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog" timestamp="1603430108970">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -272,16 +281,5 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1603493802012" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/comm/SQLConnection.java</url>
-          <line>144</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
