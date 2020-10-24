@@ -149,6 +149,21 @@ public class SQLConnection {
         return toReturn;
     }
 
+    public int searchIdMovie(String nameMovie){
+        int toReturn =0;
+        try {
+            Statement statement = connection.createStatement ( );
+            String sql = "SELECT * FROM peliculas WHERE peliculas.nombre ="+nameMovie;
+            ResultSet movies = statement.executeQuery ( sql );
+            movies.next ();
+            toReturn = movies.getInt ( 1 );
+        } catch ( SQLException throwables ) {
+            throwables.printStackTrace ( );
+        }
+        return toReturn;
+    }
+
+
     public void insertMovie ( Movie movie ) {
         try {
             Statement statement = connection.createStatement ( );
@@ -163,7 +178,7 @@ public class SQLConnection {
         }
     }
 
-    public void joinMovieAndActor ( ) {
+    public void joinMovieAndActor ( int movieID, int ActorID ) {
 
     }
 

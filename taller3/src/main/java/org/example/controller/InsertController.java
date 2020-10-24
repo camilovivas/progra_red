@@ -46,13 +46,14 @@ public class InsertController {
         );
     }
 
-    public void createMovie ( ) {
+    public int createMovie ( ) {
         String nombrePeli = window.getName ( ).getText ( );
         int year = Integer.parseInt ( window.getYear ( ).getText ( ) );
         String genero = window.getListGenero ( ).getValue ( );
         int generoID = sql.searchIdGenero ( genero );
         Movie movie = new Movie ( -1, nombrePeli, year, generoID );
         sql.insertMovie ( movie );
+        return sql.searchIdMovie ( nombrePeli );
     }
 
     public int createActor ( ) {
