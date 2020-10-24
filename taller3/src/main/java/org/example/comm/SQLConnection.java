@@ -125,7 +125,7 @@ public class SQLConnection {
         int toReturn =0;
         try {
             Statement statement = connection.createStatement ( );
-            String sql = "SELECT * FROM genero WHERE genero.tipo ="+genero;
+            String sql = "SELECT * FROM genero WHERE genero.tipo = '"+genero+"'";
             ResultSet generos = statement.executeQuery ( sql );
             generos.next ();
             toReturn = generos.getInt ( 1 );
@@ -137,9 +137,10 @@ public class SQLConnection {
 
     public int searchIdActor(String nameActor){
         int toReturn =0;
+        String [] split = nameActor.split ( " " );
         try {
             Statement statement = connection.createStatement ( );
-            String sql = "SELECT * FROM actores WHERE genero.tipo ="+nameActor;
+            String sql = "SELECT * FROM actores WHERE actores.nombre = '"+split[0]+"'";
             ResultSet generos = statement.executeQuery ( sql );
             generos.next ();
             toReturn = generos.getInt ( 1 );
@@ -153,7 +154,7 @@ public class SQLConnection {
         int toReturn =0;
         try {
             Statement statement = connection.createStatement ( );
-            String sql = "SELECT * FROM peliculas WHERE peliculas.nombre ="+nameMovie;
+            String sql = "SELECT * FROM peliculas WHERE peliculas.nombre = '"+nameMovie+"'";
             ResultSet movies = statement.executeQuery ( sql );
             movies.next ();
             toReturn = movies.getInt ( 1 );
@@ -170,7 +171,7 @@ public class SQLConnection {
             String sql = ("INSERT INTO peliculas (nombre, year, generoID) VALUES ('$NOMBRE',$YEAR, $GENERO)")
                     .replace ( "$NOMBRE", movie.getNombre ( ) )
                     .replace ( "$YEAR", "" + movie.getYear ( ) )
-                    .replace ( "$GENRO", "" + movie.getGeneroID ( ) );
+                    .replace ( "$GENERO", "" + movie.getGeneroID ( ) );
             statement.execute ( sql );
 
         } catch ( SQLException throwables ) {
@@ -178,7 +179,16 @@ public class SQLConnection {
         }
     }
 
-    public void joinMovieAndActor ( int movieID, int ActorID ) {
+    public void joinMovieAndActor ( int movieID, int actorID ) {
+        try {
+            Statement statement = connection.createStatement ( );
+            String sql = ("INSERT INTO tabla_pivote (peliculaID, actorID) VALUES ('$PELICULAID','$ACTORID')")
+                    .replace ( "$PELICULAID", movieID+"" )
+                    .replace ( "$ACTORID", actorID+"" );
+            statement.execute (sql);
+        } catch ( SQLException throwables ) {
+            throwables.printStackTrace ( );
+        }
 
     }
 

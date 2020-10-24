@@ -75,11 +75,9 @@ public class InsertController {
     public void addMovie ( ) {
         window.getAddMovie ( ).setOnAction (
                 e -> {
-                    createActor ( );
-                    createMovie ( );
-
-
+                    sql.joinMovieAndActor ( createMovie ( ), createActor ( ));
                     sql.offConnect ( );
+                    window.close ();
                 }
         );
     }
