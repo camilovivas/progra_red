@@ -100,7 +100,7 @@ public class SQLConnection {
 
     }
 
-    public ArrayList<String> searchMovieByGenero ( int genero ) {
+    public ArrayList<String> searchMovieByGenero ( String genero ) {
         Statement statement = null;
         ArrayList<String> toReturn = new ArrayList<> ( );
         try {
@@ -113,7 +113,7 @@ public class SQLConnection {
                 String nombreActor = datos.getString ( 3 );
                 String apellidoActor = datos.getString ( 4 );
                 String tipoGenero = datos.getString ( 5 );
-                toReturn.add ( nombre+" "+ year +" "+ nombreActor +" "+  apellidoActor +" "+ tipoGenero );
+                toReturn.add ( "NOMBRE: "+nombre+" FECHA: "+ year +" ACTOR: "+ nombreActor +" "+  apellidoActor +" GENERO: "+ tipoGenero );
             }
 
         } catch ( SQLException throwables ) {

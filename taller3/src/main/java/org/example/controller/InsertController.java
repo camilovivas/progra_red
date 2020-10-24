@@ -57,7 +57,7 @@ public class InsertController {
     }
 
     public int createActor ( ) {
-        int toReturn= 0;
+        int toReturn;
         if ( !window.getNameActor ( ).isDisable ( ) ) {
             String name = window.getNameActor ( ).getText ( );
             String apellido = window.getApellidoActor ( ).getText ( );
