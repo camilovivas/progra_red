@@ -43,8 +43,10 @@ public class InsertWindow extends Stage {
         active = new Button ( "si no encuentra el actor de la pelicula presione aqui" );
         actorName = new Text ( "inserte el nombre del actor");
         nameActor = new TextArea (  );
+        nameActor.setDisable ( true );
         actorApellido = new Text ( "inserte el apellido del actor");
         apellidoActor = new TextArea (  );
+        apellidoActor.setDisable ( true );
         b2.getChildren ().addAll ( active, actorName, nameActor, actorApellido, apellidoActor );
 
         noFound.getChildren ().addAll ( b1, b2 );
@@ -55,12 +57,8 @@ public class InsertWindow extends Stage {
         addMovie = new Button ( "add movie" );
         pane.getChildren ().addAll ( movieName, name, movieYear, year, noFound, genero, listGenero, addMovie );
 
-        scene = new Scene ( pane );
+        scene = new Scene ( pane , 600, 600);
         this.setScene ( scene );
-    }
-
-    public ComboBox<String> getListGenero ( ) {
-        return listGenero;
     }
 
     public Button getAddMovie ( ) {
@@ -81,6 +79,10 @@ public class InsertWindow extends Stage {
 
     public TextArea getApellidoActor ( ) {
         return apellidoActor;
+    }
+
+    public ComboBox<String> getListGenero ( ) {
+        return listGenero;
     }
 
     public ComboBox<String> getListActores ( ) {

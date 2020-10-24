@@ -33,7 +33,7 @@ public class MainWindows extends Stage {
        search = new Button ( "buscar" );
        pane2.getChildren ().addAll ( addMovie, deleteMovie, search );
        pane.getChildren ().addAll ( tittle, accion, pane2 );
-       scene = new Scene ( pane );
+       scene = new Scene ( pane ,300, 200);
        this.setTitle ( "programa de pelis" );
        this.setScene ( scene );
     }

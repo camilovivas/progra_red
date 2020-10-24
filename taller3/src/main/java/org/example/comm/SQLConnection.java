@@ -5,7 +5,7 @@ import org.example.model.*;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class SQLConnection<a> {
+public class SQLConnection {
 
     private Connection connection;
 
@@ -115,6 +115,34 @@ public class SQLConnection<a> {
                 toReturn.add ( new Movie ( id, nombre, year, generoID ) );
             }
 
+        } catch ( SQLException throwables ) {
+            throwables.printStackTrace ( );
+        }
+        return toReturn;
+    }
+
+    public int searchIdGenero( String genero){
+        int toReturn =0;
+        try {
+            Statement statement = connection.createStatement ( );
+            String sql = "SELECT * FROM genero WHERE genero.tipo ="+genero;
+            ResultSet generos = statement.executeQuery ( sql );
+            generos.next ();
+            toReturn = generos.getInt ( 1 );
+        } catch ( SQLException throwables ) {
+            throwables.printStackTrace ( );
+        }
+        return toReturn;
+    }
+
+    public int searchIdActor(String nameActor){
+        int toReturn =0;
+        try {
+            Statement statement = connection.createStatement ( );
+            String sql = "SELECT * FROM actores WHERE genero.tipo ="+nameActor;
+            ResultSet generos = statement.executeQuery ( sql );
+            generos.next ();
+            toReturn = generos.getInt ( 1 );
         } catch ( SQLException throwables ) {
             throwables.printStackTrace ( );
         }
