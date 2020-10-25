@@ -7,28 +7,39 @@ public class MainController {
 
     private MainWindows window;
 
-    public MainController(MainWindows window){
+    public MainController ( MainWindows window ) {
         this.window = window;
-        acctionInsert ();
-        acctionSearch ();
+        actionInsert ( );
+        actionSearch ( );
+        actionDelete ( );
     }
 
-    public void acctionInsert(){
-        window.getAddMovie ().setOnAction (
-                e->{
-                    InsertWindow iw = new InsertWindow ();
-                    iw.show();
-                    window.close ();
+    public void actionDelete ( ) {
+        window.getDeleteMovie ( ).setOnAction (
+                e -> {
+                    DeleteWindow dw = new DeleteWindow ( );
+                    dw.show ( );
+                    window.close ( );
                 }
         );
     }
 
-    public void acctionSearch(){
-        window.getSearch ().setOnAction (
-                e->{
-                    SearchWindow sw = new SearchWindow ();
-                    sw.show ();
+    public void actionInsert ( ) {
+        window.getAddMovie ( ).setOnAction (
+                e -> {
+                    InsertWindow iw = new InsertWindow ( );
+                    iw.show ( );
+                    window.close ( );
+                }
+        );
+    }
 
+    public void actionSearch ( ) {
+        window.getSearch ( ).setOnAction (
+                e -> {
+                    SearchWindow sw = new SearchWindow ( );
+                    sw.show ( );
+                    window.close ();
                 }
         );
     }

@@ -61,8 +61,24 @@ public class SQLConnection {
         return toReturn;
     }
 
-    public void getAllMovies(){
-        //TODO
+    public ArrayList<Movie> getAllMovies(){
+        Statement statement = null;
+        ArrayList<Movie> toReturn = new ArrayList<> ( );
+        try {
+            statement = connection.createStatement ( );
+            ResultSet movies = statement.executeQuery ( "select * from peliculas" );
+            while ( movies.next ( ) ) {
+                int id = movies.getInt ( 1 );
+                String nombre = movies.getString ( 2 );
+                int year = movies.getInt ( 3 );
+                int idgenero = movies.getInt ( 4 );
+                toReturn.add ( new Movie ( id, nombre, year, idgenero ) );
+            }
+
+        } catch ( SQLException throwables ) {
+            throwables.printStackTrace ( );
+        }
+        return toReturn;
     }
 
     public ArrayList<Actor> getAllActores(){
@@ -211,9 +227,15 @@ public class SQLConnection {
         }
     }
 
-    public void deleteMovie(){
+    public void deleteMovie(String nombre){
         try {
             Statement statement = connection.createStatement ( );
+            int id = searchIdMovie ( nombre );
+            String sql = "DELETE FROM tabla_pivote WHERE  tabla_pivote.peliculaID ="+id;
+            String sql2 = "DELETE FROM peliculas WHERE peliculas.id ="+id;
+
+            statement.execute ( sql );
+            statement.execute ( sql2 );
         } catch ( SQLException throwables ) {
             throwables.printStackTrace ( );
         }
