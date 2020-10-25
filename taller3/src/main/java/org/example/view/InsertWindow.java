@@ -16,7 +16,7 @@ public class InsertWindow extends Stage {
     private ComboBox<String> listGenero;
     private ComboBox<String> listActores;
     private Scene scene;
-    private Button addMovie, active;
+    private Button addMovie, active, addActor;
 
 
     public InsertWindow ( ) {
@@ -51,11 +51,13 @@ public class InsertWindow extends Stage {
 
         noFound.getChildren ().addAll ( b1, b2 );
 
+        addActor = new Button ( "ADD ACTOR" );
+
         genero = new Text ( "seleccione el genero de la pelicula" );
         listGenero = new ComboBox<> ( );
 
         addMovie = new Button ( "add movie" );
-        pane.getChildren ().addAll ( movieName, name, movieYear, year, noFound, genero, listGenero, addMovie );
+        pane.getChildren ().addAll ( movieName, name, movieYear, year, noFound,  addActor,  genero, listGenero, addMovie );
 
         scene = new Scene ( pane , 600, 600);
         this.setScene ( scene );
@@ -91,5 +93,9 @@ public class InsertWindow extends Stage {
 
     public Button getActive ( ) {
         return active;
+    }
+
+    public Button getAddActor ( ) {
+        return addActor;
     }
 }

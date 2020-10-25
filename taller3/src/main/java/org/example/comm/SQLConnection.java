@@ -61,6 +61,10 @@ public class SQLConnection {
         return toReturn;
     }
 
+    public void getAllMovies(){
+        //TODO
+    }
+
     public ArrayList<Actor> getAllActores(){
         Statement statement = null;
         ArrayList<Actor> toReturn = new ArrayList<> ( );
@@ -202,6 +206,14 @@ public class SQLConnection {
                     .replace ( "$APELLIDO", actor.getApellido ( ) );
             statement.execute ( sql );
 
+        } catch ( SQLException throwables ) {
+            throwables.printStackTrace ( );
+        }
+    }
+
+    public void deleteMovie(){
+        try {
+            Statement statement = connection.createStatement ( );
         } catch ( SQLException throwables ) {
             throwables.printStackTrace ( );
         }

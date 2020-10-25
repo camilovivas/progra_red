@@ -1,5 +1,7 @@
 package org.example.controller;
 
+import com.sun.nio.sctp.Notification;
+import javafx.scene.control.Alert;
 import org.example.comm.SQLConnection;
 import org.example.model.*;
 import org.example.view.InsertWindow;
@@ -10,14 +12,17 @@ public class InsertController {
 
     private SQLConnection sql;
     private InsertWindow window;
+    public ArrayList<Integer> actores;
 
     public InsertController ( InsertWindow window ) {
         this.window = window;
         sql = new SQLConnection ( );
+        actores = new ArrayList<> ( );
         getActores ( );
         getGeneros ( );
         active ( );
-        addMovie ();
+        addMovie ( );
+        addActor ( );
     }
 
     public void getActores ( ) {
@@ -64,9 +69,8 @@ public class InsertController {
             Actor actor = new Actor ( -1, name, apellido );
             sql.insertActor ( actor );
             toReturn = sql.searchIdActor ( name );
-        }
-        else{
-            String name = window.getListActores ().getValue ();
+        } else {
+            String name = window.getListActores ( ).getValue ( );
             toReturn = sql.searchIdActor ( name );
         }
         return toReturn;
@@ -75,10 +79,39 @@ public class InsertController {
     public void addMovie ( ) {
         window.getAddMovie ( ).setOnAction (
                 e -> {
-                    sql.joinMovieAndActor ( createMovie ( ), createActor ( ));
+                    int idMovie = createMovie ( );
+                    for (int i = 0; i < actores.size ( ); i++) {
+                        sql.joinMovieAndActor ( idMovie, actores.get ( i ) );
+                    }
+
                     sql.offConnect ( );
-                    window.close ();
+                    window.close ( );
                 }
         );
+    }
+
+    public void addActor ( ) {
+        window.getAddActor ( ).setOnAction (
+                e -> {
+                    int idActor = createActor ( );
+                    actores.add ( idActor );
+                    emptyCampos ( );
+                    Alert noti = new Alert ( Alert.AlertType.CONFIRMATION );
+                    noti.setHeaderText ( "Hemmos agregado al actor y estamos listos para seguir agregando" );
+                    noti.setContentText ( "Si ya terminaste de agregar los actores, selecciona el genero y pesiona el boton add movie" );
+                    noti.showAndWait ();
+                }
+        );
+    }
+
+    public void emptyCampos ( ) {
+        if ( !window.getNameActor ( ).isDisable ( ) ) {
+            window.getNameActor ( ).clear ( );
+            window.getNameActor ( ).setDisable ( true );
+            window.getApellidoActor ( ).clear ( );
+            window.getApellidoActor ( ).setDisable ( true );
+        } else {
+            window.getListActores ( ).setValue ( "" );
+        }
     }
 }

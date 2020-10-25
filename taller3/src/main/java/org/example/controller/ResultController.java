@@ -40,6 +40,14 @@ public class ResultController {
         }
     }
 
+    public void fillMovies(){
+        //TODO
+    }
+
+    public void fillActores(){
+        //TODO
+    }
+
     public void byGenero ( ) {
         window.getSelection ( ).setOnAction (
                 e -> {
@@ -53,5 +61,11 @@ public class ResultController {
         );
     }
 
+    public void byActor(){
+        //TODO
+    }
 
+    public void ActoresByMovie(){
+
+    }
 }
