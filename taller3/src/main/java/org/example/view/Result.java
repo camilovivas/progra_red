@@ -25,10 +25,8 @@ public class Result extends Stage {
 
         selection = new ComboBox<> (  );
         results = new ListView (  );
-        ScrollPane scrollPane = new ScrollPane (  );
-        scrollPane.setContent ( results );
-        pane.getChildren ().addAll ( tx, selection, scrollPane );
-        Scene scene = new Scene ( pane );
+        pane.getChildren ().addAll ( tx, selection, results );
+        Scene scene = new Scene ( pane , 800, 400);
         this.setScene ( scene );
     }
 

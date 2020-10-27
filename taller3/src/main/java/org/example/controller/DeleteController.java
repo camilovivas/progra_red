@@ -36,8 +36,8 @@ public class DeleteController {
                     String peli = m.getSelectedItem ().toString ();
                     sql.deleteMovie ( peli );
                     Alert aler = new Alert ( Alert.AlertType.CONFIRMATION );
-                    aler.setContentText ( "se ha eliminado la pelicula:"+peli );
-                    aler.setHeaderText ( "eliminacion Exitosa" );
+                    aler.setContentText ( "se ha eliminado la pelicula: "+peli );
+                    aler.setHeaderText ( "Eliminacion Exitosa" );
                     aler.showAndWait ();
                     sql.offConnect ();
                     window.close ();

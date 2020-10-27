@@ -3,6 +3,7 @@ package org.example.main;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import org.example.view.MainWindows;
+import org.example.view.Result;
 
 public class Launcher extends Application {
 

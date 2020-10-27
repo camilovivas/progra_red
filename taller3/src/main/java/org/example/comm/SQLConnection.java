@@ -61,7 +61,7 @@ public class SQLConnection {
         return toReturn;
     }
 
-    public ArrayList<Movie> getAllMovies(){
+    public ArrayList<Movie> getAllMovies ( ) {
         Statement statement = null;
         ArrayList<Movie> toReturn = new ArrayList<> ( );
         try {
@@ -81,7 +81,7 @@ public class SQLConnection {
         return toReturn;
     }
 
-    public ArrayList<Actor> getAllActores(){
+    public ArrayList<Actor> getAllActores ( ) {
         Statement statement = null;
         ArrayList<Actor> toReturn = new ArrayList<> ( );
         try {
@@ -99,33 +99,23 @@ public class SQLConnection {
         }
         return toReturn;
     }
-    //TODO ver si lo borro
-    public Movie searchMovie ( String name ) {
-        Movie toReturn = null;
-        try {
-            Statement statement = connection.createStatement ( );
-            String sql = "select  * from peliculas where peliculas.nombre =" + name;
 
-            ResultSet m = statement.executeQuery ( sql );
-            m.next ( );
-            int id = m.getInt ( 1 );
-            String nombre = m.getString ( 2 );
-            int year = m.getInt ( 3 );
-            int generoID = m.getInt ( 4 );
-            toReturn = new Movie ( id, nombre, year, generoID );
-        } catch ( SQLException throwables ) {
-            throwables.printStackTrace ( );
-        }
-        return toReturn;
 
-    }
-
-    public ArrayList<String> searchMovieByGenero ( String genero ) {
+    public ArrayList<String> search ( String type, int index ) {
         Statement statement = null;
+        String sql = "";
         ArrayList<String> toReturn = new ArrayList<> ( );
         try {
             statement = connection.createStatement ( );
-            String sql = "SELECT peliculas.nombre, peliculas.year, actores.nombre, actores.apellido, genero.tipo FROM (peliculas INNER JOIN tabla_pivote ON peliculas.id = tabla_pivote.peliculaID) INNER JOIN actores ON tabla_pivote.actorID = actores.id INNER JOIN genero ON peliculas.generoID = genero.id WHERE genero.tipo = '"+genero+"'";
+            if ( index == 1 ) {
+                sql = "SELECT peliculas.nombre, peliculas.year, actores.nombre, actores.apellido, genero.tipo FROM (peliculas INNER JOIN tabla_pivote ON peliculas.id = tabla_pivote.peliculaID) INNER JOIN actores ON tabla_pivote.actorID = actores.id INNER JOIN genero ON peliculas.generoID = genero.id WHERE genero.tipo = '" + type + "'";
+            }
+            else if(index == 2){
+                sql = "SELECT peliculas.nombre, peliculas.year, actores.nombre, actores.apellido, genero.tipo FROM (peliculas INNER JOIN tabla_pivote ON peliculas.id = tabla_pivote.peliculaID) INNER JOIN actores ON tabla_pivote.actorID = actores.id INNER JOIN genero ON peliculas.generoID = genero.id WHERE actores.nombre = '" + type + "'";
+            }
+            else{
+                sql = "SELECT peliculas.nombre, peliculas.year, actores.nombre, actores.apellido, genero.tipo FROM (peliculas INNER JOIN tabla_pivote ON peliculas.id = tabla_pivote.peliculaID) INNER JOIN actores ON tabla_pivote.actorID = actores.id INNER JOIN genero ON peliculas.generoID = genero.id WHERE peliculas.nombre = '" + type + "'";
+            }
             ResultSet datos = statement.executeQuery ( sql );
             while ( datos.next ( ) ) {
                 String nombre = datos.getString ( 1 );
@@ -133,7 +123,7 @@ public class SQLConnection {
                 String nombreActor = datos.getString ( 3 );
                 String apellidoActor = datos.getString ( 4 );
                 String tipoGenero = datos.getString ( 5 );
-                toReturn.add ( "NOMBRE: "+nombre+" FECHA: "+ year +" ACTOR: "+ nombreActor +" "+  apellidoActor +" GENERO: "+ tipoGenero );
+                toReturn.add ( "NOMBRE: " + nombre + " FECHA: " + year + " ACTOR: " + nombreActor + " " + apellidoActor + " GENERO: " + tipoGenero );
             }
 
         } catch ( SQLException throwables ) {
@@ -142,13 +132,13 @@ public class SQLConnection {
         return toReturn;
     }
 
-    public int searchIdGenero( String genero){
-        int toReturn =0;
+    public int searchIdGenero ( String genero ) {
+        int toReturn = 0;
         try {
             Statement statement = connection.createStatement ( );
-            String sql = "SELECT * FROM genero WHERE genero.tipo = '"+genero+"'";
+            String sql = "SELECT * FROM genero WHERE genero.tipo = '" + genero + "'";
             ResultSet generos = statement.executeQuery ( sql );
-            generos.next ();
+            generos.next ( );
             toReturn = generos.getInt ( 1 );
         } catch ( SQLException throwables ) {
             throwables.printStackTrace ( );
@@ -156,14 +146,14 @@ public class SQLConnection {
         return toReturn;
     }
 
-    public int searchIdActor(String nameActor){
-        int toReturn =0;
-        String [] split = nameActor.split ( " " );
+    public int searchIdActor ( String nameActor ) {
+        int toReturn = 0;
+        String[] split = nameActor.split ( " " );
         try {
             Statement statement = connection.createStatement ( );
-            String sql = "SELECT * FROM actores WHERE actores.nombre = '"+split[0]+"'";
+            String sql = "SELECT * FROM actores WHERE actores.nombre = '" + split[0] + "'";
             ResultSet generos = statement.executeQuery ( sql );
-            generos.next ();
+            generos.next ( );
             toReturn = generos.getInt ( 1 );
         } catch ( SQLException throwables ) {
             throwables.printStackTrace ( );
@@ -171,13 +161,13 @@ public class SQLConnection {
         return toReturn;
     }
 
-    public int searchIdMovie(String nameMovie){
-        int toReturn =0;
+    public int searchIdMovie ( String nameMovie ) {
+        int toReturn = 0;
         try {
             Statement statement = connection.createStatement ( );
-            String sql = "SELECT * FROM peliculas WHERE peliculas.nombre = '"+nameMovie+"'";
+            String sql = "SELECT * FROM peliculas WHERE peliculas.nombre = '" + nameMovie + "'";
             ResultSet movies = statement.executeQuery ( sql );
-            movies.next ();
+            movies.next ( );
             toReturn = movies.getInt ( 1 );
         } catch ( SQLException throwables ) {
             throwables.printStackTrace ( );
@@ -204,15 +194,14 @@ public class SQLConnection {
         try {
             Statement statement = connection.createStatement ( );
             String sql = ("INSERT INTO tabla_pivote (peliculaID, actorID) VALUES ('$PELICULAID','$ACTORID')")
-                    .replace ( "$PELICULAID", movieID+"" )
-                    .replace ( "$ACTORID", actorID+"" );
-            statement.execute (sql);
+                    .replace ( "$PELICULAID", movieID + "" )
+                    .replace ( "$ACTORID", actorID + "" );
+            statement.execute ( sql );
         } catch ( SQLException throwables ) {
             throwables.printStackTrace ( );
         }
 
     }
-
 
     public void insertActor ( Actor actor ) {
         try {
@@ -227,12 +216,12 @@ public class SQLConnection {
         }
     }
 
-    public void deleteMovie(String nombre){
+    public void deleteMovie ( String nombre ) {
         try {
             Statement statement = connection.createStatement ( );
             int id = searchIdMovie ( nombre );
-            String sql = "DELETE FROM tabla_pivote WHERE  tabla_pivote.peliculaID ="+id;
-            String sql2 = "DELETE FROM peliculas WHERE peliculas.id ="+id;
+            String sql = "DELETE FROM tabla_pivote WHERE  tabla_pivote.peliculaID =" + id;
+            String sql2 = "DELETE FROM peliculas WHERE peliculas.id =" + id;
 
             statement.execute ( sql );
             statement.execute ( sql2 );
