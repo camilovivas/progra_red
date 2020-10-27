@@ -24,13 +24,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3b7d8bbd-711d-4651-be5e-71524fb56853" name="Default Changelist" comment="work in SQL">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/comm/SQLConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/comm/SQLConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/DeleteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/DeleteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/ResultController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/ResultController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/SearchController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/main/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/main/Launcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/view/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/view/Result.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/controller/MainController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +107,8 @@
       <workItem from="1603467705720" duration="23206000" />
       <workItem from="1603505528348" duration="9911000" />
       <workItem from="1603570380019" duration="27754000" />
-      <workItem from="1603759942429" duration="4626000" />
+      <workItem from="1603759942429" duration="4822000" />
+      <workItem from="1603808503528" duration="2151000" />
     </task>
     <task id="LOCAL-00001" summary="implement the view">
       <created>1603401697489</created>
@@ -207,7 +201,21 @@
       <option name="project" value="LOCAL" />
       <updated>1603655858180</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="finish">
+      <created>1603764876720</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1603764876720</updated>
+    </task>
+    <task id="LOCAL-00015" summary="finish">
+      <created>1603764954283</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1603764954283</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -236,7 +244,8 @@
     <MESSAGE value="add funtion search movie by genero" />
     <MESSAGE value="modify view of insert" />
     <MESSAGE value="insert action of delete movie" />
-    <option name="LAST_COMMIT_MESSAGE" value="insert action of delete movie" />
+    <MESSAGE value="finish" />
+    <option name="LAST_COMMIT_MESSAGE" value="finish" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Deployment" timestamp="1603430351455">
@@ -267,22 +276,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="462" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1603429312815" />
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1603764757834">
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1603764998722">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1603764757834" />
-    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1603764757834">
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1603764998722" />
+    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1603764998722">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1603764757834" />
-    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1603764757834">
+    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1603764998722" />
+    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1603764998722">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1603764757834" />
-    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1603764757834">
+    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1603764998722" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1603764998722">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1603764757834" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1603764998722" />
     <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1603721732971">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -307,10 +316,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="200" height="441" key="SqlResolveConfigurable/0.0.1366.728@0.0.1366.728" timestamp="1603429658137" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1603655865439">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1603764961580">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1603655865439" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1603764961580" />
     <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog" timestamp="1603430108970">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
