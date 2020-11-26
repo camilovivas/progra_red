@@ -98,7 +98,7 @@ public class TaskProvider {
 
     public void deleteTask (String task ) {
         MySQLConnection sql = new MySQLConnection ( );
-        sql.executeSQL ( "DELETE FROM taks where task ="+task );
+        sql.executeSQL ( "DELETE FROM tasks where task = '"+task+"'" );
 
     }
 
@@ -106,7 +106,7 @@ public class TaskProvider {
         int toReturn = 0;
         MySQLConnection sql = new MySQLConnection ( );
         try {
-        ResultSet r = sql.query ( "SELEC * FROM tasks where task ="+task );
+        ResultSet r = sql.query ( "SELEC * FROM tasks where task = '"+task+"'" );
             r.next ();
             toReturn = r.getInt ( 2 );
         } catch ( SQLException throwables ) {
@@ -119,13 +119,13 @@ public class TaskProvider {
     public void avanzaTask ( String task ) {
         MySQLConnection sql = new MySQLConnection ( );
         int fase = search ( task );
-        sql.executeSQL ( "update tasks SET faseID ="+(fase+1)+"where tasks.task ="+task );
+        sql.executeSQL ( "update tasks SET faseID ="+(fase+1)+"where tasks.task = '"+task+"'" );
     }
 
     public void retrocedeTask(String task){
         MySQLConnection sql = new MySQLConnection ( );
         int fase = search ( task );
-        sql.executeSQL ( "update tasks SET faseID ="+(fase-1)+"where tasks.task ="+task );
+        sql.executeSQL ( "update tasks SET faseID ="+(fase-1)+"where tasks.task ='"+task+"'" );
     }
 
     public Task mapFromDTO ( TaskDTO taskDTO ) {
