@@ -1,8 +1,7 @@
 const task = document.getElementById("task");
 
 const bt = document.getElementById("insert");
-const conte =document.getElementById('taskContainer')
-const pru = document.getElementById('prueba');
+
 const conte1 = document.getElementById('TODO');
 const conte2 = document.getElementById('DOING');
 const conte3 = document.getElementById('DONE');
@@ -37,7 +36,7 @@ const getAllTaskTODO = ()=>{
             for(let i = 0; i<response.length; i++){
                 let taskDTO = response[i];
                 let view = new TodoView(taskDTO);
-                conte.appendChild(view.render);
+                conte1.appendChild(view.render);
             
             }
         }
@@ -58,8 +57,7 @@ const getAllTaskDOING = ()=>{
             for(let i = 0; i<response.length; i++){
                 let taskDTO = response[i];
                 let view = new DoingView(taskDTO);
-               // conte2.appendChild(view.render);
-                pru.appendChild(view.render);
+                conte2.appendChild(view.render);
             }
         }
     });
