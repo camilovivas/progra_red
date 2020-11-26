@@ -67,7 +67,7 @@ public class TaskService {
     @Path ( "baja/{task}" )
     public void bajaFase(@PathParam  ("task") String task ){
         TaskProvider taskProvider = new TaskProvider ();
-        taskProvider.avanzaTask ( task );
+        taskProvider.retrocedeTask ( task );
     }
 
 }
