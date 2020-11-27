@@ -1,0 +1,21 @@
+#taskContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#TODO{
+    display: flex;
+    flex-direction: column;
+}
+
+#DOING{
+    display: flex;
+    flex-direction: column;
+}
+
+#DONE{
+    display: flex;
+    flex-direction: column;
+}
+
